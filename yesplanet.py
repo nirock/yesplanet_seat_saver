@@ -124,10 +124,15 @@ class YesplanetSeatSaver(object):
             yss.step4()
             show_page(yss.get_seat_selector_page())
             seat_selection = raw_input(r"Please enter your seat selection: ")
+            catch = 1
             while True:
                 if (yss.step5(seat_selection) is True):
                     print "Saved seats successfuly"
-                sleeping_time = 60 + random.randint(10,50)
+                    catch = 0
+                if catch == 1:
+                    sleeping_time = 5
+                else:
+                    sleeping_time = 60 + random.randint(10,50)
                 print "Sleeping for a %d seconds" % (sleeping_time)
                 time.sleep(sleeping_time)
 
